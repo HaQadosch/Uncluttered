@@ -12,7 +12,10 @@ do
   fi
 done
 
-
+# CLI options detailed here https://wiki.mozilla.org/Firefox/CommandLineOptions
 DATA_DIR="$(mktemp -d -t 'firefox-unsafe_data_dir.XXXXXXXXXX')"
-"${FIREFOX}" -profile $DATA_DIR -no-remote -new-instance \
-        https://localhost:8888/ >/dev/null 2>&1 &!
+"${FIREFOX}" \
+  -profile $DATA_DIR \
+  -no-remote \
+  -url http://localhost:8888/ \
+  >/dev/null 2>&1 &!
